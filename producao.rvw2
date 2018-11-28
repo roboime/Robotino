@@ -1107,6 +1107,92 @@
             </md:varExpr>
           </md:outVarExprs>
         </md:unit>
+        <md:unit md:deviceInstanceName="Generic" md:id="actor_constant__10_" md:name="Constant (10)" md:type="REC GmbH Constant" md:utspec="rec_gmbh_constant_int32" md:variantName="REC GmbH Constant">
+          <md:inVarExprs>
+            <md:varExpr md:value="4" md:varname="value">
+              <md:varProperty md:name="visible" md:value="false"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:inVarExprs>
+          <md:outVarExprs>
+            <md:varExpr md:varname="out">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:outVarExprs>
+        </md:unit>
+        <md:unit md:deviceInstanceName="Generic" md:id="actor_float_array_index_access__4_" md:name="Float array index access (4)" md:type="REC GmbH Float Array Index Access" md:utspec="rec_gmbh_float_array_index_access" md:variantName="REC GmbH Float Array Index Access">
+          <md:inVarExprs>
+            <md:varExpr md:value="()" md:varname="array">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+            <md:varExpr md:value="1" md:varname="index">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:inVarExprs>
+          <md:outVarExprs>
+            <md:varExpr md:varname="value">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:outVarExprs>
+        </md:unit>
+        <md:unit md:deviceInstanceName="Generic" md:id="actor_sample_and_hold_element__2_" md:name="Sample and hold element (2)" md:type="REC GmbH Sample And Hold Element" md:utspec="rec_gmbh_sample_and_hold_element" md:variantName="REC GmbH Sample And Hold Element">
+          <md:inVarExprs>
+            <md:varExpr md:value="0.000000" md:varname="in">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+            <md:varExpr md:value="false" md:varname="sample">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:inVarExprs>
+          <md:outVarExprs>
+            <md:varExpr md:varname="out">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:outVarExprs>
+        </md:unit>
+        <md:unit md:deviceInstanceName="Generic" md:id="actor_greater__2_" md:name="Greater (2)" md:type="REC GmbH Basic Greater" md:utspec="rec_gmbh_basic_greater" md:variantName="REC GmbH Basic Greater">
+          <md:inVarExprs>
+            <md:varExpr md:value="0.000000" md:varname="op1">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+            <md:varExpr md:value="0.000000" md:varname="op2">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:inVarExprs>
+          <md:outVarExprs>
+            <md:varExpr md:varname="gr">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:outVarExprs>
+        </md:unit>
+        <md:unit md:deviceInstanceName="Generic" md:id="actor_less__2_" md:name="Less (2)" md:type="REC GmbH Basic Less" md:utspec="rec_gmbh_basic_less" md:variantName="REC GmbH Basic Less">
+          <md:inVarExprs>
+            <md:varExpr md:value="0.000000" md:varname="op1">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+            <md:varExpr md:value="0.000000" md:varname="op2">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:inVarExprs>
+          <md:outVarExprs>
+            <md:varExpr md:varname="ls">
+              <md:varProperty md:name="visible" md:value="true"/>
+              <md:varProperty md:name="debug" md:value="true"/>
+            </md:varExpr>
+          </md:outVarExprs>
+        </md:unit>
       </md:units>
       <md:edges>
         <md:edge md:cons="1" md:delay="0" md:id="edge_1" md:prod="1">
@@ -1281,6 +1367,50 @@
           <md:from md:con="ls" md:unit="actor_less__1_"/>
           <md:to md:con="set" md:unit="actor_odometry"/>
         </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_44" md:prod="1">
+          <md:from md:con="output" md:unit="actor_value_reader__1_"/>
+          <md:to md:con="array" md:unit="actor_float_array_index_access__4_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_45" md:prod="1">
+          <md:from md:con="out" md:unit="actor_constant__10_"/>
+          <md:to md:con="index" md:unit="actor_float_array_index_access__4_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_46" md:prod="1">
+          <md:from md:con="value" md:unit="actor_float_array_index_access__4_"/>
+          <md:to md:con="in" md:unit="actor_sample_and_hold_element__2_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_47" md:prod="1">
+          <md:from md:con="value" md:unit="actor_float_array_index_access__4_"/>
+          <md:to md:con="op1" md:unit="actor_greater__2_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_48" md:prod="1">
+          <md:from md:con="gr" md:unit="actor_greater__2_"/>
+          <md:to md:con="sample" md:unit="actor_sample_and_hold_element__2_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="1" md:id="edge_49" md:prod="1">
+          <md:from md:con="out" md:unit="actor_sample_and_hold_element__2_"/>
+          <md:to md:con="op2" md:unit="actor_greater__2_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_50" md:prod="1">
+          <md:from md:con="value" md:unit="actor_float_array_index_access__4_"/>
+          <md:to md:con="op1" md:unit="actor_less__2_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_51" md:prod="1">
+          <md:from md:con="out" md:unit="actor_sample_and_hold_element__2_"/>
+          <md:to md:con="op2" md:unit="actor_less__2_"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_52" md:prod="1">
+          <md:from md:con="ls" md:unit="actor_less__2_"/>
+          <md:to md:con="brake" md:unit="actor_motor__1"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_53" md:prod="1">
+          <md:from md:con="ls" md:unit="actor_less__2_"/>
+          <md:to md:con="brake" md:unit="actor_motor__2"/>
+        </md:edge>
+        <md:edge md:cons="1" md:delay="0" md:id="edge_54" md:prod="1">
+          <md:from md:con="ls" md:unit="actor_less__2_"/>
+          <md:to md:con="brake" md:unit="actor_motor__3"/>
+        </md:edge>
       </md:edges>
     </md:sdf>
   </md:sdfs>
@@ -1338,6 +1468,11 @@
           <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_and__2_" md:width="-1" md:x="330" md:y="-78"/>
           <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_less__1_" md:width="-1" md:x="576" md:y="42"/>
           <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_constant__9_" md:width="-1" md:x="426" md:y="90"/>
+          <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_constant__10_" md:width="-1" md:x="378" md:y="-300"/>
+          <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_float_array_index_access__4_" md:width="-1" md:x="612" md:y="-264"/>
+          <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_sample_and_hold_element__2_" md:width="-1" md:x="828" md:y="-276"/>
+          <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_greater__2_" md:width="-1" md:x="738" md:y="-228"/>
+          <md:unit md:height="-1" md:nameDisplay="hidden" md:unit="actor_less__2_" md:width="-1" md:x="924" md:y="-192"/>
         </md:units>
         <md:nets>
           <md:net>
@@ -1483,10 +1618,45 @@
           <md:net>
             <md:edge md:edge="edge_43"/>
           </md:net>
+          <md:net>
+            <md:edge md:edge="edge_44"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_45"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_46"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_47"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_48"/>
+          </md:net>
+          <md:net>
+            <md:point md:x="780" md:y="-186">
+              <md:point md:x="732" md:y="-186">
+                <md:edge md:edge="edge_49"/>
+              </md:point>
+            </md:point>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_50"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_51"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_52"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_53"/>
+          </md:net>
+          <md:net>
+            <md:edge md:edge="edge_54"/>
+          </md:net>
         </md:nets>
-        <md:texts>
-          <md:text md:text="New Text" md:x="714" md:y="-258"/>
-        </md:texts>
+        <md:texts/>
       </md:sdf>
     </md:sdfs>
     <md:sfcs>
